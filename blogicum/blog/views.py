@@ -20,12 +20,12 @@ def get_posts(**kwargs):
         'location',
         'author'
     ).annotate(comment_count=Count('comments')
-               ).filter(**kwargs).order_by('-pub_date')
+                ).filter(**kwargs).order_by(*Post._meta.ordering)
 
 
 def get_paginator(request, queryset,
                   number_of_pages=NUMBER_OF_PAGINATOR_PAGES):
-    """Представление queryset в виде пагинатора"""
+    """Представление данных в виде пагинатора"""
     paginator = Paginator(queryset, number_of_pages)
     page_number = request.GET.get('page')
     return paginator.get_page(page_number)

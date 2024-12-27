@@ -14,7 +14,7 @@
     ```
 2. Перейдите в директорию проекта:
     ```bash
-    cd django_sprint4-main
+    cd django_sprint4
     ```
 3. Создайте виртуальное окружение:
     ```bash
@@ -33,15 +33,31 @@
     ```bash
     pip install -r requirements.txt
     ```
+6. Перейдите в директорию приложения:
+    ```bash
+    cd blogicum
+    ```
+6. Проведите миграции:
+    ```bash
+    python manage.py migrate
+    ```
+7. Опционально, загрузите тестовые данные:
+    ```bash
+    python manage.py loaddata db.json
+    ```
+8. Опционально, создайте суперпользователя:
+    ```bash
+    python manage.py createsuperuser
+    ```
 
 ## Запуск
 Для запуска сервера разработки выполните команду:
 ```bash
-python blogicum/manage.py runserver
+python manage.py runserver
 ```
 
 Тестирование
-Проект содержит набор тестов, которые можно запустить с помощью pytest. Для этого выполните:
+Проект содержит набор тестов, которые можно запустить с помощью pytest. Для этого из папки django_sprint4 выполните:
 ```bash
 pytest
 ```
